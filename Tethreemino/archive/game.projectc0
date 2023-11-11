@@ -49,7 +49,7 @@ velocity_threshold = 1
 max_fixed_timesteps = 2
 
 [bootstrap]
-main_collection = /main/main.collectionc
+main_collection = /manager/manager.collectionc
 render = /builtins/render/default.renderc
 
 [graphics]
