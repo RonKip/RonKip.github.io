@@ -93,16 +93,6 @@
 		background-position: left bottom;
 		margin-left: 2px;
 	}
-	.link {
-		text-align: right;
-		color: #4e5258;
-		margin-right: 2px;
-	}
-	a {
-		font-weight: 600;
-		color: #006fff;
-		text-decoration: none;
-	}
 	.link, .button {
 		font-family: sans-serif;
 		font-size: 14px;
@@ -156,7 +146,6 @@
 		</div>
 		<div class="buttons-background">
 			<div class="button" onclick="Module.toggleFullscreen();">Fullscreen</div>
-			<div class="link">Made with <a href="https://defold.com/" target="_blank">Defold</a></div>
 		</div>
 	</div>
 	<!-- -->
@@ -195,7 +184,6 @@
 	var buttonHeight = 0;
 	var prevInnerWidth = -1;
 	var prevInnerHeight = -1;
-	buttonHeight = 42;
 	buttonHeight = 42;
 	function resize_game_canvas() {
 		// Hack for iOS when exit from Fullscreen mode

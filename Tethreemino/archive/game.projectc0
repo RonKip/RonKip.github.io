@@ -4,14 +4,14 @@ version = 1.0
 write_log = 0
 compress_archive = 1
 publisher = unnamed
-developer = unnamed
+developer = Kiprono Bett
 title_as_file_name = Tethreemino
 
 [display]
 width = 576
 height = 720
 high_dpi = 1
-samples = 0
+samples = 4
 fullscreen = 0
 update_frequency = 0
 swap_interval = 1
@@ -128,7 +128,7 @@ localizations = en
 version_code = 1
 minimum_sdk_version = 19
 target_sdk_version = 33
-package = com.example.todo
+package = com.talkbig.tethree
 gcm_sender_id = 
 manifest = /builtins/manifests/android/AndroidManifest.xml
 iap_provider = GooglePlay
@@ -160,7 +160,7 @@ archive_location_suffix =
 engine_arguments = --verify-graphics-calls=false
 wasm_streaming = 0
 show_fullscreen_button = 1
-show_made_with_defold = 1
+show_made_with_defold = 0
 show_console_banner = 1
 scale_mode = downscale_fit
 
@@ -203,4 +203,7 @@ max_tile_count = 2048
 [engine]
 run_while_iconified = 0
 fixed_update_frequency = 60
+
+[native_extension]
+app_manifest = /app.appmanifest
 
