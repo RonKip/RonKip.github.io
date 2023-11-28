@@ -1,16 +1,16 @@
 [project]
 title = Rubiks Candy
-version = 1.0s
+version = 2.0
 write_log = 0
 compress_archive = 1
 publisher = unnamed
-developer = unnamed
+developer = Kiprono Bett
 title_as_file_name = RubiksCandy
 
 [display]
 width = 480
 height = 640
-high_dpi = 0
+high_dpi = 1
 samples = 0
 fullscreen = 0
 update_frequency = 0
@@ -49,12 +49,12 @@ velocity_threshold = 1
 max_fixed_timesteps = 2
 
 [bootstrap]
-main_collection = /main/main.collectionc
+main_collection = /manager/manager.collectionc
 render = /builtins/render/default.renderc
 
 [graphics]
-default_texture_min_filter = linear
-default_texture_mag_filter = linear
+default_texture_min_filter = nearest
+default_texture_mag_filter = nearest
 max_draw_calls = 1024
 max_characters = 8192
 max_debug_vertices = 10000
@@ -155,13 +155,14 @@ custom_heap_size = 0
 heap_size = 256
 htmlfile = /builtins/manifests/web/engine_template.html
 cssfile = /builtins/manifests/web/light_theme.css
+splash_image = /assets/splash.png
 archive_location_prefix = archive
 archive_location_suffix = 
 engine_arguments = --verify-graphics-calls=false
 wasm_streaming = 0
 show_fullscreen_button = 1
-show_made_with_defold = 1
-show_console_banner = 1
+show_made_with_defold = 0
+show_console_banner = 0
 scale_mode = downscale_fit
 
 [particle_fx]
