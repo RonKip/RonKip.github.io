@@ -22,9 +22,9 @@ dynamic_orientation = 0
 display_device_info = 0
 
 [render]
-clear_color_red = 0
-clear_color_green = 0
-clear_color_blue = 0
+clear_color_red = 0.34
+clear_color_green = 0.33
+clear_color_blue = 0.32
 clear_color_alpha = 0
 
 [physics]
@@ -164,7 +164,7 @@ wasm_streaming = 0
 show_fullscreen_button = 1
 show_made_with_defold = 0
 show_console_banner = 0
-scale_mode = downscale_fit
+scale_mode = stretch
 
 [particle_fx]
 max_count = 256
