@@ -168,7 +168,7 @@ scale_mode = downscale_fit
 [particle_fx]
 max_count = 256
 max_emitter_count = 256
-max_particle_count = 1024
+max_particle_count = 2048
 
 [iap]
 auto_finish_transactions = 1
