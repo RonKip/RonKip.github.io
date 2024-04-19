@@ -165,11 +165,11 @@ show_fullscreen_button = 1
 show_made_with_defold = 0
 show_console_banner = 0
 scale_mode = downscale_fit
-background_image = /background.png
-progress_inner_image = /inner.png
-progress_outer_image = /outer.png
-rubiks_logo = /logo_anim.gif
-fullscreen_image = /fullscreen.png
+background_image = background.png
+progress_inner_image = inner.png
+progress_outer_image = outer.png
+rubiks_logo = logo_anim.gif
+fullscreen_image = fullscreen.png
 
 [particle_fx]
 max_count = 64
