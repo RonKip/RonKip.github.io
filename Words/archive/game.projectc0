@@ -1,16 +1,17 @@
 [project]
-title = Rubiks WordPaint
-version = 2.0
+title = Rubiks
+version = 1.0
 write_log = 0
 compress_archive = 1
 publisher = unnamed
-developer = Kiprono Bett
-custom_resources = rubiks
-title_as_file_name = RubiksWordPaint
+developer = unnamed
+custom_resources = /bundle
+bundle_resources = /res
+title_as_file_name = Rubiks
 
 [display]
-width = 640
-height = 720
+width = 375
+height = 812
 high_dpi = 1
 samples = 0
 fullscreen = 0
@@ -22,9 +23,9 @@ dynamic_orientation = 0
 display_device_info = 0
 
 [render]
-clear_color_red = 0.34
-clear_color_green = 0.33
-clear_color_blue = 0.32
+clear_color_red = 0.9
+clear_color_green = 0.1
+clear_color_blue = 0.1
 clear_color_alpha = 0
 
 [physics]
@@ -51,11 +52,11 @@ max_fixed_timesteps = 2
 
 [bootstrap]
 main_collection = /manager/manager.collectionc
-render = /builtins/render/default.renderc
+render = /materials/rubiks.renderc
 
 [graphics]
-default_texture_min_filter = linear
-default_texture_mag_filter = linear
+default_texture_min_filter = nearest
+default_texture_mag_filter = nearest
 max_draw_calls = 1024
 max_characters = 8192
 max_debug_vertices = 10000
@@ -154,9 +155,8 @@ app_icon =
 [html5]
 custom_heap_size = 0
 heap_size = 256
-htmlfile = /builtins/manifests/web/engine_template.html
-cssfile = /builtins/manifests/web/light_theme.css
-splash_image = /assets/splash.png
+htmlfile = /rubiks/rubiks_template.html
+cssfile = /rubiks/rubiks.css
 archive_location_prefix = archive
 archive_location_suffix = 
 engine_arguments = --verify-graphics-calls=false
@@ -164,11 +164,16 @@ wasm_streaming = 0
 show_fullscreen_button = 1
 show_made_with_defold = 0
 show_console_banner = 0
-scale_mode = stretch
+scale_mode = downscale_fit
+background_image = /background.png
+progress_inner_image = /inner.png
+progress_outer_image = /outer.png
+rubiks_logo = /logo_anim.gif
+fullscreen_image = /fullscreen.png
 
 [particle_fx]
-max_count = 256
-max_emitter_count = 256
+max_count = 64
+max_emitter_count = 64
 max_particle_count = 1024
 
 [iap]
@@ -205,7 +210,4 @@ max_tile_count = 2048
 [engine]
 run_while_iconified = 0
 fixed_update_frequency = 60
-
-[native_extension]
-app_manifest = /manager/app.appmanifest
 
