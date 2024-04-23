@@ -1,5 +1,5 @@
 [project]
-title = Rubiks
+title = Rubiks Neno
 version = 1.0
 write_log = 0
 compress_archive = 1
@@ -7,7 +7,7 @@ publisher = unnamed
 developer = unnamed
 custom_resources = /bundle
 bundle_resources = /res
-title_as_file_name = Rubiks
+title_as_file_name = RubiksNeno
 
 [display]
 width = 375
