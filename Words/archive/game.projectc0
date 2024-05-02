@@ -5,8 +5,8 @@ write_log = 0
 compress_archive = 1
 publisher = unnamed
 developer = unnamed
-custom_resources = /bundle
-bundle_resources = /res
+custom_resources = /common/bundle
+bundle_resources = /common/res
 title_as_file_name = RubiksNeno
 
 [display]
@@ -51,8 +51,8 @@ velocity_threshold = 1
 max_fixed_timesteps = 2
 
 [bootstrap]
-main_collection = /manager/manager.collectionc
-render = /materials/rubiks.renderc
+main_collection = /common/manager/manager.collectionc
+render = /common/materials/rubiks.renderc
 
 [graphics]
 default_texture_min_filter = nearest
@@ -155,8 +155,8 @@ app_icon =
 [html5]
 custom_heap_size = 0
 heap_size = 256
-htmlfile = /rubiks/rubiks_template.html
-cssfile = /rubiks/rubiks.css
+htmlfile = /common/rubiks/rubiks_template.html
+cssfile = /common/rubiks/rubiks.css
 archive_location_prefix = archive
 archive_location_suffix = 
 engine_arguments = --verify-graphics-calls=false
@@ -164,12 +164,12 @@ wasm_streaming = 0
 show_fullscreen_button = 1
 show_made_with_defold = 0
 show_console_banner = 0
-scale_mode = downscale_fit
+scale_mode = stretch
 background_image = background.png
 progress_inner_image = inner.png
 progress_outer_image = outer.png
-rubiks_logo = logo_anim.gif
-fullscreen_image = fullscreen.png
+rubiks_logo = playon.svg
+fullscreen_image = fullscreen.svg
 
 [particle_fx]
 max_count = 64
