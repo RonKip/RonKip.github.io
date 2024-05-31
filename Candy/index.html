@@ -8,7 +8,136 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Rubiks Candy 2.0</title>
-    <link rel="stylesheet" href="template.css" />
+    <style type="text/css">
+      /* Disable user selection to avoid strange bug in Chrome on Windows:
+      * Selecting a text outside the canvas, then clicking+draging would
+      * drag the selected text but block mouse down/up events to the engine.
+      */
+      body {
+      
+      	position: fixed; /* Prevent overscroll */
+      
+      	margin:0;
+      	padding:0;
+      }
+
+      html,
+body {
+  margin: 0px;
+}
+
+.canvas-app-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.canvas-app-container:-webkit-full-screen {
+  /* Auto width and height in Safari/Chrome fullscreen. */
+  width: auto;
+  height: auto;
+}
+
+#canvas {
+  outline: none;
+  border: 0;
+  width: 100%;
+  vertical-align: bottom;
+}
+
+#canvas-container {
+  position: relative;
+  display: none;
+}
+
+canvas:focus,
+canvas:active {
+  outline: none;
+  border: 0;
+  -moz-outline-style: none;
+  outline-style: none;
+}
+
+div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#app-container {
+  margin: 0px;
+  padding: 0px;
+  background-image: url("background.png");
+}
+
+.rubiks-container {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rubiks {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.rubiks-logo {
+  align-self: center;
+  padding-top: calc(812px / 4);
+}
+
+.rubiks-info {
+  color: white;
+}
+
+.loading-text {
+  color: white;
+}
+
+.bar-container {
+  position: relative;
+  width: 80%;
+  height: 20px;
+}
+
+.bar-inner {
+  position: absolute;
+  top: 3px;
+  left: 0.5%;
+  max-width: 99%;
+  border-radius: 7px;
+}
+
+.bar-outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 102%;
+  border-radius: 7px;
+}
+
+.fullscreen {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  align-items: center;
+  font-size: large;
+  margin: 2px;
+}
+
+    </style>
   </head>
 
   <body>
@@ -24,23 +153,82 @@
       </div>
       <div class="rubiks-container" id="rubiks_container">
         <div class="rubiks">
-          <img class="rubiks-logo" src="./Logo Animation.gif" />
+          <img class="rubiks-logo" src="playon.svg" width="210" height="80" />
           <p class="rubiks-info">PlayOn Games</p>
           <p class="loading-text">Loading... Gaming Greatness</p>
           <div class="bar-container">
-            <img class="bar-outer" src="./Outer.png" width="100%" height="20px" />
-            <img id="bar_inner" class="bar-inner" src="./Inner.png" width="99%" height="14px" />
+            <img class="bar-outer" src="outer.png" width="100%" height="20px" />
+            <img id="bar_inner" class="bar-inner" src="inner.png" width="1%" height="14px" />
           </div>
         </div>
       </div>
       <div id="canvas-container" class="canvas-app-canvas-container">
-        <canvas id="canvas" class="canvas-app-canvas" tabindex="1" width="{{display.width}}" height="{{display.height}}"></canvas>
+        <canvas id="canvas" class="canvas-app-canvas" tabindex="1" width="375" height="812"></canvas>
       </div>
-      <div class="fullscreen"><img src="./fullscreen.png" /><span>&nbsp;&nbsp;</span><span>Fullscreen</span></div>
+      <div class="fullscreen" onclick="Module.toggleFullscreen();"><img src="fullscreen.svg" height="42" width="60" /><span>&nbsp;&nbsp;</span><span>Fullscreen</span></div>
     </div>
     <!-- -->
     <script id="engine-loader" type="text/javascript" src="dmloader.js"></script>
     <!-- -->
+
+    <script type="text/javascript">
+      //override dmloader.js
+      var Progress = {
+        progress_id: "defold-progress",
+        bar_id: "defold-progress-bar",
+
+        listeners: [],
+
+        addListener: function (callback) {
+          if (typeof callback !== "function") throw "Invalid callback registration";
+          this.listeners.push(callback);
+        },
+
+        notifyListeners: function (percentage) {
+          for (i = 0; i < this.listeners.length; ++i) {
+            this.listeners[i](percentage);
+          }
+        },
+
+        addProgress: function (canvas) {
+          Progress.bar = document.getElementById("bar_inner");
+          Progress.progress = document.getElementById("rubiks_container");
+
+          /* Insert default progress bar below canvas */
+          // canvas.insertAdjacentHTML('afterend', '<div id="' + Progress.progress_id + '" class="canvas-app-progress"><div id="' + Progress.bar_id + '" class="canvas-app-progress-bar" style="width: 0%;"></div></div>');
+          // Progress.bar = document.getElementById(Progress.bar_id);
+          // Progress.progress = document.getElementById(Progress.progress_id);
+          //create by js or in html shell
+        },
+
+        updateProgress: function (percentage) {
+          if (Progress.bar) {
+            Progress.bar.style.width = Math.min(percentage, 100) + "%";
+          }
+
+          //update css
+          Progress.notifyListeners(percentage);
+        },
+
+        calculateProgress: function (from, to, current, total) {
+          this.updateProgress(from + (current / total) * (to - from));
+        },
+
+        removeProgress: function () {
+          if (Progress.progress.parentElement !== null) {
+            Progress.progress.parentElement.removeChild(Progress.progress);
+
+            let canvas_id = document.getElementById("canvas-container");
+            canvas_id.style.display = "block";
+
+            // Remove any background/splash image that was set in runApp().
+            // Workaround for Safari bug DEF-3061.
+            Module.canvas.style.background = "";
+          }
+        },
+      };
+    </script>
+
     <script id="engine-setup" type="text/javascript">
       var extra_params = {
         archive_location_filter: function (path) {
