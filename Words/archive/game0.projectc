@@ -1,10 +1,10 @@
 [project]
 title = Rubiks Neno Hunt
-version = 1.0
+version = 2.0
 write_log = 0
 compress_archive = 1
-publisher = unnamed
-developer = unnamed
+publisher = RubiX
+developer = Ronald Bett
 custom_resources = /main/custom/
 bundle_resources = /bundle
 title_as_file_name = RubiksNenoHunt
@@ -131,7 +131,7 @@ localizations = en
 [android]
 version_code = 1
 minimum_sdk_version = 19
-target_sdk_version = 33
+target_sdk_version = 34
 package = com.example.todo
 gcm_sender_id = 
 manifest = /builtins/manifests/android/AndroidManifest.xml
@@ -141,6 +141,7 @@ immersive_mode = 0
 display_cutout = 1
 debuggable = 0
 proguard = 
+extract_native_libs = 1
 
 [osx]
 app_icon = 
@@ -197,6 +198,7 @@ sleep_between_server_updates = 0
 [liveupdate]
 settings = /liveupdate.settings
 enabled = 1
+mount_on_start = 1
 
 [tilemap]
 max_count = 16
