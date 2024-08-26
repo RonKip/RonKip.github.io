@@ -5,18 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rubiks</title>
+    <link href="main.css" rel="stylesheet">
+    <script src="main.js"></script>
 </head>
 
 <body>
-    <p>Rubix HTML5 Games. Developed by Ronald Bett. Publish by Rubix.</p>
-    <ul>
-        <li><a href="/Candy">Rubiks Match 3</a></li>
-        <li><a href="./Tethreemino/index.html">Tethreemino</a></li>
-        <li><a href="./Train/index.html">Train Master</a></li>
-        <li><a href="./Tug/index.html">Tug of War</a></li>
-        <li><a href="./Words/index.html">Neno Hunt</a></li>
-        <li><a href="./Cuttoo/index.html">Cuttoo</a></li>
-    </ul>
+    <h2 class="title"> HTML5 Board Games. Developed by Ronald Bett. </h2>
+    <div class="grid-container">
+        <div class="grid-item" onclick="show(1)">
+            <img src="./assets/screen2.png" alt="Match 3" width="90%">
+            <a href="./Candy/index.html">Rubiks Match 3</a>
+        </div>
+        <div class="grid-item" onclick="show(2)">
+            <img src="./assets/screen4.png" alt="Tethreemino" width="90%">
+            <a href="./Tethreemino/index.html">Tethreemino</a>
+        </div>
+
+        <div class="grid-item" onclick="show(3)">
+            <img src="./assets/screen3.png" alt="Train Master" width="90%">
+            <a href="./Train/index.html">Train Master</a>
+        </div>
+
+        <div class="grid-item" onclick="show(4)">
+            <img src="./assets/screen1.png" alt="Cuttoo" width="90%">
+            <a href="./Cuttoo/index.html">Cuttoo</a>
+        </div>
+
+        </ul>
 </body>
 
 </html>
