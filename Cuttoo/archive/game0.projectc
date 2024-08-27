@@ -11,7 +11,7 @@ title_as_file_name = Cuttoo
 [display]
 width = 720
 height = 1280
-high_dpi = 0
+high_dpi = 1
 samples = 0
 fullscreen = 0
 update_frequency = 0
