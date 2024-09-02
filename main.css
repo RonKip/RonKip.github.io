@@ -20,10 +20,13 @@ html, body {
 }
 
 .title { 
-    text-align: center;
     margin: 24px;
 }
 
 a { 
     font-size: large;
+}
+
+.info-container {
+    margin: 4px;
 }
